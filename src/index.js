@@ -2,12 +2,11 @@ const express = require("express");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-const postsRouter = require("./routes/posts");
+const questionsRouter = require("./routes/questions");
 
 app.use(express.json());
 
-app.use("/api/posts", postsRouter);
+app.use("/api/questions", questionsRouter);
 
 app.use((req, res) => {
   res.status(404).json({ msg: "Not found" });
