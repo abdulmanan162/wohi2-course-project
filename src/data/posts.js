@@ -1,31 +1,28 @@
 const posts = [
   {
     id: 1,
-    title: "Introduction to HTTP",
-    date: "2026-03-20",
-    content: "HTTP is the foundation of communication on the web. It defines how clients and servers exchange data.",
-    keywords: ["http", "web"]
+    question: "Where do you live?",
+    answer: "I currently live in Kuopio, Finland."
   },
   {
     id: 2,
-    title: "Understanding REST APIs",
-    date: "2026-03-22",
-    content: "REST is an architectural style that uses standard HTTP methods like GET, POST, PUT, and DELETE.",
-    keywords: ["http", "api"]
+    question: "What is your dream country to visit?",
+    answer: "My dream country to visit is Japan because of its culture and technology."
   },
   {
     id: 3,
-    title: "Node.js Basics",
-    date: "2026-03-25",
-    content: "Node.js allows you to run JavaScript on the server using a non-blocking, event-driven architecture.",
-    keywords: ["javascript", "backend"]
+    question: "What is your favorite hobby?",
+    answer: "My favorite hobby is coding and building IoT projects."
   },
   {
     id: 4,
-    title: "Introduction to Databases",
-    date: "2026-03-26",
-    content: "Databases store and organize data. Common types include relational databases like PostgreSQL and MySQL.",
-    keywords: ["database", "backend"]
+    question: "What is your dream job?",
+    answer: "My dream job is to become a successful software engineer and entrepreneur."
+  },
+  {
+    id: 5,
+    question: "What motivates you every day?",
+    answer: "Learning new skills and building my future motivates me every day."
   }
 ];
 
