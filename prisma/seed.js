@@ -1,4 +1,6 @@
 const { PrismaClient } = require("@prisma/client");
+const bcrypt = require("bcrypt");
+
 const prisma = new PrismaClient();
 
 const seedPosts = [
@@ -33,15 +35,32 @@ const seedPosts = [
 ];
 
 async function main() {
+  // साफ database (optional but common in seed)
   await prisma.post.deleteMany();
   await prisma.keyword.deleteMany();
+  await prisma.user.deleteMany();
 
+  // ✅ 1. Create default user
+  const hashedPassword = await bcrypt.hash("1234", 10);
+
+  const user = await prisma.user.create({
+    data: {
+      email: "admin@example.com",
+      password: hashedPassword,
+      name: "Admin User",
+    },
+  });
+
+  console.log("Created user:", user.email);
+
+  // ✅ 2. Create posts linked to user
   for (const post of seedPosts) {
     await prisma.post.create({
       data: {
         title: post.title,
         date: post.date,
         content: post.content,
+        userId: user.id, // now this works
         keywords: {
           connectOrCreate: post.keywords.map((kw) => ({
             where: { name: kw },
